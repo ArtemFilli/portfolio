@@ -1,0 +1,9 @@
+
+sql
+ user: User	9nw-ZHW-TPb-4QE
+ db: portfolio
+
+
+site
+ user: User	&C@ysg7Oo(BdvpP4Yy
+

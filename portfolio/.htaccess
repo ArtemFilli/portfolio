@@ -1,0 +1,79 @@
+# BEGIN LSCACHE
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+<IfModule LiteSpeed>
+RewriteEngine on
+CacheLookup on
+RewriteRule .* - [E=Cache-Control:no-autoflush]
+RewriteRule \.litespeed_conf\.dat - [F,L]
+
+### marker MOBILE start ###
+RewriteCond %{HTTP_USER_AGENT} Mobile|Android|Silk/|Kindle|BlackBerry|Opera\ Mini|Opera\ Mobi [NC]
+RewriteRule .* - [E=Cache-Control:vary=%{ENV:LSCACHE_VARY_VALUE}+ismobile]
+### marker MOBILE end ###
+
+### marker CACHE RESOURCE start ###
+RewriteRule wp-content/.*/[^/]*(responsive|css|js|dynamic|loader|fonts)\.php - [E=cache-control:max-age=3600]
+### marker CACHE RESOURCE end ###
+
+### marker FAVICON start ###
+RewriteRule favicon\.ico$ - [E=cache-control:max-age=86400]
+### marker FAVICON end ###
+
+### marker DROPQS start ###
+CacheKeyModify -qs:fbclid
+CacheKeyModify -qs:gclid
+CacheKeyModify -qs:utm*
+CacheKeyModify -qs:_ga
+### marker DROPQS end ###
+
+</IfModule>
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+# END LSCACHE
+# BEGIN NON_LSCACHE
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+### marker BROWSER CACHE start ###
+<IfModule mod_expires.c>
+ExpiresActive on
+ExpiresByType application/pdf A5000000
+ExpiresByType image/x-icon A5000000
+ExpiresByType image/vnd.microsoft.icon A5000000
+ExpiresByType image/svg+xml A5000000
+
+ExpiresByType image/jpg A5000000
+ExpiresByType image/jpeg A5000000
+ExpiresByType image/png A5000000
+ExpiresByType image/gif A5000000
+ExpiresByType image/webp A5000000
+
+ExpiresByType video/ogg A5000000
+ExpiresByType audio/ogg A5000000
+ExpiresByType video/mp4 A5000000
+ExpiresByType video/webm A5000000
+
+ExpiresByType text/css A5000000
+ExpiresByType text/javascript A5000000
+ExpiresByType application/javascript A5000000
+ExpiresByType application/x-javascript A5000000
+
+ExpiresByType application/x-font-ttf A5000000
+ExpiresByType application/x-font-woff A5000000
+ExpiresByType application/font-woff A5000000
+ExpiresByType application/font-woff2 A5000000
+ExpiresByType application/vnd.ms-fontobject A5000000
+ExpiresByType font/ttf A5000000
+ExpiresByType font/otf A5000000
+ExpiresByType font/woff A5000000
+ExpiresByType font/woff2 A5000000
+
+</IfModule>
+### marker BROWSER CACHE end ###
+
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+# END NON_LSCACHE
+
+# BEGIN WordPress
+# Директивы (строки) между `BEGIN WordPress` и `END WordPress`
+# созданы автоматически и подлежат изменению только через фильтры WordPress.
+# Сделанные вручную изменения между этими маркерами будут перезаписаны.
+
+# END WordPress
